@@ -9,7 +9,7 @@ TQModRuntime is a small program to mod Titan Quest game at runtime to:
 * remove broken loot drops
 * enhance better loot drops
 
-The mod is based on Titan Quest Eternal Embers release, and as of March 26, 2022. 
+The mod is based on Titan Quest Eternal Embers release, as of March 26, 2022. 
 The build file included in the TQ folder is: TQ_19042022_2.10.20820.build.
 
 Titan Quest Eternal Embers is published by THQ Nordic.
