@@ -94,7 +94,7 @@ namespace DBase
       }
 
       // wait until database obj address becomes available
-      printf("waiting for database scene update\n");
+      printf("waiting for database scene update\n  (move your char if already in game)\n");
       while (databaseAddr == 0)
       {
         ReadProcessMemory(hProcess, (BYTE*)pWriteDatabaseObjAddr, &databaseAddr, sizeof(databaseAddr), nullptr);

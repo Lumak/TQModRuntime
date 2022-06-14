@@ -24,6 +24,8 @@
 #include "DBase.h"
 #include "Speed.h"
 #include "Loot.h"
+#include "Exp.h"
+
 //=============================================================================
 //=============================================================================
 const int MajVersion = 1;
@@ -80,6 +82,7 @@ int main()
   {
     Speed::Setup(hProcess, databaseAddr);
     Loot::Setup(hProcess, gameDllBase, databaseAddr);
+    Exp::Setup(hProcess, gameDllBase);
   }
   else
   {

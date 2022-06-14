@@ -51,7 +51,7 @@ namespace Loot
     //LootItemTableRandomizer::SetNoBrokenItems     - 8B 41 7C          - mov eax, [ecx + 7C]
     //LootItemTableRandomizer::SetNoBrokenItems + 3 - 01 41 70          - add[ecx + 70], eax
     //LootItemTableRandomizer::SetNoBrokenItems + 6 - C7 41 7C 00000000 - mov[ecx + 7C], 00000000 { 0 }
-    //*replace above with                           C7 41 7C 01000000 - mov[ecx + 7C], 01000000 { 1 }
+    //*replace above with                             C7 41 7C 01000000 - mov[ecx + 7C], 01000000 { 1 }
     setNoBrokenItemsAddr = gameDllBase + 0x001C83B0;
     BYTE noBrokenReplaceOpcode2[14] = { 0x8B, 0x41, 0x7C, 0x01, 0x41, 0x70, 0xC7, 0x41, 0x7C, 0x01, 0x00, 0x00, 0x00, 0xC3 };
     success = WriteProcessMemory(hProcess, (BYTE*)setNoBrokenItemsAddr, &noBrokenReplaceOpcode2, sizeof(noBrokenReplaceOpcode2), nullptr);
@@ -116,7 +116,7 @@ namespace Loot
     //+1B - C7 46 30 00000000 - mov[esi + 30], 00000000 { 0 }
     //+22 - C7 46 34 00000000 - mov[esi + 34], 00000000 { 0 }
     //+29 - C7 46 38 00000000 - mov[esi + 38], 00000000 { 0 }
-    if (lootMasterTableOpcode[0x20] == 0x0)
+    if (lootMasterTableOpcode[0x18] == 0x0)
     {
       lootMasterTableOpcode[0x10] = 0x01; // 
       lootMasterTableOpcode[0x18] = 0x40; // 
@@ -147,7 +147,7 @@ namespace Loot
     //+1B - C7 46 30 00000000 - mov[esi + 30], 00000000 { 0 }
     //+22 - C7 46 34 00000000 - mov[esi + 34], 00000000 { 0 }
     //+29 - C7 46 38 00000000 - mov[esi + 38], 00000000 { 0 }
-    if (lootDynWeightOpcode[0x1f] == 0x00)
+    if (lootDynWeightOpcode[0x18] == 0x00)
     {
       // final: [0x18] = 0x20, after numerous tests, the below setup gives the best green/yellow drop combos
       lootDynWeightOpcode[0x10] = 0x00;
@@ -180,7 +180,7 @@ namespace Loot
     //+1B - C7 46 30 00000000 - mov[esi + 30], 00000000 { 0 }
     //+22 - C7 46 34 00000000 - mov[esi + 34], 00000000 { 0 }
     //+29 - C7 46 38 00000000 - mov[esi + 38], 00000000 { 0 }
-    if (lootFixedWeightOpcode[0x1f] == 0x0)
+    if (lootFixedWeightOpcode[0x18] == 0x0)
     {
       lootFixedWeightOpcode[0x10] = 0x00; // 
       lootFixedWeightOpcode[0x18] = 0x40; // 
@@ -224,6 +224,7 @@ namespace Loot
         success = WriteProcessMemory(hProcess, (BYTE*)setRandomWeightAddr, &setRandWeightOpcode, sizeof(setRandWeightOpcode), nullptr);
       }
     }
+
     if (success == TRUE)
     {
       printf("loot drop mod added\n");

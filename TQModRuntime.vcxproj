@@ -153,6 +153,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DBase.cpp" />
+    <ClCompile Include="Exp.cpp" />
     <ClCompile Include="Loot.cpp" />
     <ClCompile Include="proc.cpp" />
     <ClCompile Include="Speed.cpp" />
@@ -160,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DBase.h" />
+    <ClInclude Include="Exp.h" />
     <ClInclude Include="Loot.h" />
     <ClInclude Include="proc.h" />
     <ClInclude Include="Speed.h" />
